@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Bonjour, <span th:text="${username != null ? username : 'visiteur'}"></span>!</h1>
+    <div th:if="${username != null}">
+        <form action="/auth/logout" method="post">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+    <div th:if="${username == null}">
+        <a href="/login"><button>Login</button></a>
+        <a href="/register"><button>Register</button></a>
+    </div>
+</body>
+</html>
